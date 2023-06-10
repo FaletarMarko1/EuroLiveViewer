@@ -46,8 +46,35 @@ $podatak = $xml->item->datum_primjene;
       </div>
     </nav>
 
-    <section class="kontent">
-      
+    <section class="kontent mt-5">
+      <form>
+        <div class="input-group mb-3">
+          <span class="input-group-text px-5">&nbsp;&nbsp;&nbsp;&nbsp;€ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EUR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+          <input style="font-size:40px ; height: 70px; text-align:center;" id="novac" name="novac" type="number" class="form-control">
+        </div>
+        <div>
+          <img class="exchange" src="slike/exchange.png" alt="exchange image">
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text">
+            <form method="post" action="">
+              <select class="form-select" aria-label="Default select example">
+                <option selected>Odaberi valutu:</option>
+                <option value="1">Drzave abecedno</option>
+                <option value="2">Kupovnom tecaju</option>
+                <option value="3">Srednjem tecaju</option>
+                <option value="3">Prodajnom tecaju</option>
+              </select>
+            </form>
+          </span>
+          <input style="font-size:40px ; height: 70px; text-align:center;" id="novac" name="novac" type="number" class="form-control">
+        </div>
+        <div class="d-grid gap-2 col-6 mx-auto">
+          <button class="btn btn-primary mt-4 " type="submit">Pretvori</button>
+        </div>
+
+      </form>
+
 
     </section>
 
