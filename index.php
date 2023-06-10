@@ -1,8 +1,3 @@
-<?php
-$url = "https://api.hnb.hr/tecajn-eur/v3?format=xml";
-$xml = simplexml_load_file($url) or die("Nemogu ucitati XML datoteku");
-$podatak = $xml->item->datum_primjene;
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,8 +41,40 @@ $podatak = $xml->item->datum_primjene;
       </div>
     </nav>
 
-    <section class="kontent">
+    <section class="kontent mt-5">
+      <h2>Trenutno stanje tecaja eura</h1>
 
+        <form method="post" action="">
+          <label for="datum">Datum primjene od 1.1.2023. :</label>
+          <input type="date" value="" min="2023-01-01" max="<?php echo date('Y-m-d'); ?>" id="datum" name="datum" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+          <select class="form-select" aria-label="Default select example">
+            <option selected>Sortiraj po:</option>
+            <option value="1">Drzave abecedno</option>
+            <option value="2">Kupovnom tecaju</option>
+            <option value="3">Srednjem tecaju</option>
+            <option value="3">Prodajnom tecaju</option>
+          </select>
+          <button class="btn btn-primary mt-4" type="submit">Filtriraj</button>
+        </form>
+
+        <h4 class="mt-5">Tecaj eura na dan <?php datum(); ?> je:</h4>
+        <table class="table table-light table-striped mt-4">
+          <thead>
+            <tr>
+              <th scope="col">Valuta</th>
+              <th scope="col">Drzava</th>
+              <th scope="col">Datum primjene</th>
+              <th scope="col">Kupovni_tecaj</th>
+              <th scope="col">Srednji_tecaj</th>
+              <th scope="col">Prodajni_tecaj</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            $datum = $_POST['datum'];
+            tablica($datum);
+            ?>
+        </table>
     </section>
 
     <div class="containere">
@@ -73,3 +100,34 @@ $podatak = $xml->item->datum_primjene;
 </body>
 
 </html>
+
+
+<?php
+//echo "<script type='text/javascript'>alert('$datum');</script>";
+function tablica($datum)
+{
+  $url = "https://api.hnb.hr/tecajn-eur/v3?format=xml&datum-primjene=" . $datum;
+  $xml = simplexml_load_file($url) or die("Ne postoje podaci za taj datum");
+
+  foreach ($xml->item as $item) :
+    echo '<tr>';
+    echo '<td>' . $item->valuta . '</td>';
+    echo '<td>' . $item->drzava . '</td>';
+    echo '<td>' . $item->datum_primjene . '</td>';
+    echo '<td>' . $item->kupovni_tecaj . '</td>';
+    echo '<td>' . $item->srednji_tecaj . '</td>';
+    echo '<td>' . $item->prodajni_tecaj . '</td>';
+    echo '</tr>';
+  endforeach;
+}
+
+function datum(){
+  $datum = $_POST['datum'];
+  if($datum == null){
+    $datum = date('d-m-Y');
+    echo $datum;
+  }else{
+    echo $datum;
+  }
+}
+?>
