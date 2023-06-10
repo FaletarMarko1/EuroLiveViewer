@@ -45,7 +45,7 @@
       <form method="post" action="">
         <div class="input-group mb-3">
           <span class="input-group-text px-5">&nbsp;&nbsp;&nbsp;&nbsp;€ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EUR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-          <input style="font-size:40px ; height: 70px; text-align:center;" id="novac" name="novac" type="number" class="form-control">
+          <input style="font-size:40px ; height: 70px; text-align:center;" id="novac" name="novac" type="number" step="any" class="form-control">
         </div>
         <div>
           <img class="exchange" src="slike/exchange.png" alt="exchange image">
@@ -69,10 +69,37 @@
               <option value="12">PLN</option>
             </select>
           </span>
-          <input style="font-size:40px ; height: 70px; text-align:center;" id="novac2" name="novac2" type="number" class="form-control">
+          <input readonly style="font-size:40px ; height: 70px; text-align:center;" id="novac2" name="novac2" type="number" step="any" class="form-control" placeholder="<?php 
+          
+       
+  if (isset($_POST['submit']) && !empty($_POST['selektor']) && !empty($_POST['novac'])) {
+    $url = "https://api.hnb.hr/tecajn-eur/v3?format=xml";
+    $xml = simplexml_load_file($url) or die("Nemogu ucitati XML datoteku");
+
+    $odabir = $_POST['selektor'];
+    $novac = $_POST['novac'];
+
+    //echo "<script type='text/javascript'>alert('$novac');</script>";
+
+    $tecaj = $xml->item[(int)$odabir]->prodajni_tecaj;
+    //$tecaj2 = $xml->item[(int)$odabir]->drzava;
+    $tecaj2 = str_replace(",", ".", $tecaj);
+    //echo "<scrip>alert('$tecaj');</script>";
+
+    $cijenaEur = floatval($tecaj2) * $novac;
+
+    //echo "<script type='text/javascript'>alert('$novac');</script>";
+
+    echo $cijenaEur;
+  } else {
+    echo "Odaberite valutu i unesite iznos";
+  }
+
+          
+          ?>">
         </div>
         <div class="d-grid gap-2 col-6 mx-auto">
-          <button class="btn btn-primary mt-4 " type="submit">Pretvori</button>
+          <button class="btn btn-primary mt-4 " name="submit" type="submit">Pretvori</button>
         </div>
       </form>
 
@@ -106,12 +133,6 @@
 
 
 <?php
-$url = "https://api.hnb.hr/tecajn-eur/v3?format=xml";
-$xml = simplexml_load_file($url) or die("Nemogu ucitati XML datoteku");
 
-if (isset($_POST['selektor'])) {
-  $odabir = $_POST['selektor'];
-  echo "<script type='text/javascript'>alert('$odabir');</script>";
-}
 
 ?>
