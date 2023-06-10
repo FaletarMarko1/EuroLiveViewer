@@ -1,8 +1,3 @@
-<?php
-$url = "https://api.hnb.hr/tecajn-eur/v3?format=xml";
-$xml = simplexml_load_file($url) or die("Nemogu ucitati XML datoteku");
-$podatak = $xml->item->datum_primjene;
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,7 +42,7 @@ $podatak = $xml->item->datum_primjene;
     </nav>
 
     <section class="kontent mt-5">
-      <form>
+      <form method="post" action="">
         <div class="input-group mb-3">
           <span class="input-group-text px-5">&nbsp;&nbsp;&nbsp;&nbsp;€ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EUR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
           <input style="font-size:40px ; height: 70px; text-align:center;" id="novac" name="novac" type="number" class="form-control">
@@ -57,22 +52,28 @@ $podatak = $xml->item->datum_primjene;
         </div>
         <div class="input-group mb-3">
           <span class="input-group-text">
-            <form method="post" action="">
-              <select class="form-select" aria-label="Default select example">
-                <option selected>Odaberi valutu:</option>
-                <option value="1">Drzave abecedno</option>
-                <option value="2">Kupovnom tecaju</option>
-                <option value="3">Srednjem tecaju</option>
-                <option value="3">Prodajnom tecaju</option>
-              </select>
-            </form>
+            <select name="selektor" class="form-select" aria-label="Default select example">
+              <option selected>Odaberi valutu:</option>
+              <option value="0">AUD</option>
+              <option value="1">CAD</option>
+              <option value="2">CZK</option>
+              <option value="3">DKK</option>
+              <option value="4">HUF</option>
+              <option value="5">JPY</option>
+              <option value="6">NOK</option>
+              <option value="7">SEK</option>
+              <option value="8">CHF</option>
+              <option value="9">GBP</option>
+              <option value="10">USD</option>
+              <option value="11">BAM</option>
+              <option value="12">PLN</option>
+            </select>
           </span>
-          <input style="font-size:40px ; height: 70px; text-align:center;" id="novac" name="novac" type="number" class="form-control">
+          <input style="font-size:40px ; height: 70px; text-align:center;" id="novac2" name="novac2" type="number" class="form-control">
         </div>
         <div class="d-grid gap-2 col-6 mx-auto">
           <button class="btn btn-primary mt-4 " type="submit">Pretvori</button>
         </div>
-
       </form>
 
 
@@ -101,3 +102,16 @@ $podatak = $xml->item->datum_primjene;
 </body>
 
 </html>
+
+
+
+<?php
+$url = "https://api.hnb.hr/tecajn-eur/v3?format=xml";
+$xml = simplexml_load_file($url) or die("Nemogu ucitati XML datoteku");
+
+if (isset($_POST['selektor'])) {
+  $odabir = $_POST['selektor'];
+  echo "<script type='text/javascript'>alert('$odabir');</script>";
+}
+
+?>
