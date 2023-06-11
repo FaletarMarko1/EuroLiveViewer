@@ -23,47 +23,47 @@
   <div class="container">
 
     <nav class="navbar navbar-expand-lg bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand fs-2 p-0" href="#">Valute</a>
+      <div class="container-fluid p-0">
+        <a class="navbar-brand fs-2 p-0" href="#">EuroLiveViewer</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active fs-5" aria-current="page" href="#">Trenutni tecaj</a>
+              <a class="nav-link active fs-5" aria-current="page" href="#">Trenutni tečaj</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link fs-5" href="pretvarac.php">Pretvarac valuta</a>
+              <a class="nav-link fs-5" href="pretvarac.php">Pretvarač valuta</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <section class="kontent mt-5">
-      <h2>Trenutno stanje tecaja eura</h1><br>
+    <section class="kontent mt-5"><br>
+      <h1>Trenutno stanje tečaja eura</h1><br>
 
         <form method="post" action="">
-          <label for="datum">Datum primjene od 1.1.2023. :</label>
+          <label for="datum">Odaberite datum:</label>
           <input type="date" value="<?php echo date('Y-m-d'); ?>" min="2023-01-01" max="<?php echo date('Y-m-d'); ?>" id="datum" name="datum" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <button class="btn btn-primary mt-4" type="submit">Filtriraj</button>
           </div>
         </form>
 
-        <h4 class="mt-5">Tecaj eura na dan
+        <h4 class="mt-5">Tečaj eura na dan
           <?php datum(); ?> je:
         </h4>
         <table class="table table-light table-striped mt-4">
           <thead>
             <tr>
               <th scope="col">Valuta</th>
-              <th scope="col">Drzava</th>
+              <th scope="col">Država</th>
               <th scope="col">Datum primjene</th>
-              <th scope="col">Kupovni_tecaj</th>
-              <th scope="col">Srednji_tecaj</th>
-              <th scope="col">Prodajni_tecaj</th>
+              <th scope="col">Kupovni_tečaj</th>
+              <th scope="col">Srednji_tečaj</th>
+              <th scope="col">Prodajni_tečaj</th>
             </tr>
           </thead>
           <tbody>
@@ -76,7 +76,25 @@
             }
             ?>
         </table>
+        <nav aria-label="Page navigation example">
+          <ul class="pagination justify-content-center">
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
     </section>
+
 
     <div class="containere">
       <footer class="d-flex bg-light flex-wrap justify-content-between align-items-center py-3 mt-4 ">
@@ -85,10 +103,10 @@
         </div>
 
         <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-          <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24">
+          <li class="ms-3"><a class="text-body-secondary" href="https://twitter.com/exchangeratesuk"><svg class="bi" width="24" height="24">
                 <use xlink:href="#twitter" />
               </svg></a></li>
-          <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24">
+          <li class="ms-3"><a class="text-body-secondary" href="https://www.instagram.com/exchange.rates/?hl=hr"><svg class="bi" width="24" height="24">
                 <use xlink:href="#instagram" />
               </svg></a></li>
         </ul>

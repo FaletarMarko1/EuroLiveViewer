@@ -26,8 +26,8 @@
   <div class="container">
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <a class="navbar-brand fs-2 p-0" href="index.php">Valute</a>
+      <div class="container-fluid p-0">
+        <a class="navbar-brand fs-2 p-0" href="index.php">EuroLiveViewer</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -35,17 +35,17 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link fs-5" aria-current="page" href="index.php">Trenutni tecaj</a>
+              <a class="nav-link fs-5" aria-current="page" href="index.php">Trenutni tečaj</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active fs-5" href="#">Pretvarac valuta</a>
+              <a class="nav-link active fs-5" href="#">Pretvarač valuta</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <section class="kontent mt-5">
+    <section class="kontent mt-5"><br>
       <form method="post" action="">
         <div class="input-group mb-3">
           <span class="input-group-text px-5">&nbsp;&nbsp;&nbsp;€
@@ -76,7 +76,7 @@
             </select>
           </span>
           <input readonly style="font-size:30px ; height: 70px; text-align:center;" id="novac2" name="novac2"
-            type="number" step="any" class="form-control" placeholder="<?php
+            type="text" step="any" class="form-control" placeholder="<?php
 
 
             if (isset($_POST['submit']) && isset($_POST['selektor']) && !empty($_POST['novac'])) {
@@ -89,6 +89,7 @@
               //echo "<script type='text/javascript'>alert('$novac');</script>";
             
               $tecaj = $xml->item[(int) $odabir]->prodajni_tecaj;
+              $valuta = $xml->item[(int) $odabir]->valuta;
               //$tecaj2 = $xml->item[(int)$odabir]->drzava;
               $tecaj2 = str_replace(",", ".", $tecaj);
               //echo "<scrip>alert('$tecaj');</script>";
@@ -97,7 +98,7 @@
 
               //echo "<script type='text/javascript'>alert('$novac');</script>";
             
-              echo $cijenaEur;
+              echo number_format($cijenaEur, 2) . " " . $valuta;
             } else {
               echo "Odaberite valutu i unesite iznos";
             }
@@ -109,9 +110,8 @@
           <button class="btn btn-primary mt-4 " name="submit" type="submit">Pretvori</button>
         </div>
       </form>
-
-
     </section>
+
 
     <div class="containere">
       <footer class="d-flex bg-light flex-wrap justify-content-between align-items-center py-3 mt-4 ">
@@ -138,10 +138,3 @@
 </body>
 
 </html>
-
-
-
-<?php
-
-
-?>
