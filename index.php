@@ -8,7 +8,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <link type="text/css" rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
-  <title>Document</title>
+  <link rel="icon" type="image/x-icon" href="slike/favicon.ico">
+  <title>EuroLiveViewer</title>
 </head>
 
 <body class="bg-light">
@@ -62,9 +63,9 @@
               <th scope="col">Valuta</th>
               <th scope="col">Država</th>
               <th scope="col">Datum primjene</th>
-              <th scope="col">Kupovni_tečaj</th>
-              <th scope="col">Srednji_tečaj</th>
-              <th scope="col">Prodajni_tečaj</th>
+              <th scope="col">Kupovni tečaj</th>
+              <th scope="col">Srednji tečaj</th>
+              <th scope="col">Prodajni tečaj</th>
             </tr>
           </thead>
           <tbody>
