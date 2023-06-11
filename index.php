@@ -8,7 +8,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <link type="text/css" rel="stylesheet" href="style.css">
   <title>Document</title>
-</head> 
+</head>
 
 <body class="bg-light">
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -24,17 +24,17 @@
 
     <nav class="navbar navbar-expand-lg bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Valute</a>
+        <a class="navbar-brand fs-2 p-0" href="#">Valute</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Trenutni tecaj</a>
+              <a class="nav-link active fs-5" aria-current="page" href="#">Trenutni tecaj</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="pretvarac.php">Pretvarac valuta</a>
+              <a class="nav-link fs-5" href="pretvarac.php">Pretvarac valuta</a>
             </li>
           </ul>
         </div>
@@ -42,22 +42,19 @@
     </nav>
 
     <section class="kontent mt-5">
-      <h2>Trenutno stanje tecaja eura</h1>
+      <h2>Trenutno stanje tecaja eura</h1><br>
 
         <form method="post" action="">
           <label for="datum">Datum primjene od 1.1.2023. :</label>
-          <input type="date" value="" min="2023-01-01" max="<?php echo date('Y-m-d'); ?>" id="datum" name="datum" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
-          <select class="form-select" aria-label="Default select example">
-            <option selected>Sortiraj po:</option>
-            <option value="1">Drzave abecedno</option>
-            <option value="2">Kupovnom tecaju</option>
-            <option value="3">Srednjem tecaju</option>
-            <option value="3">Prodajnom tecaju</option>
-          </select>
-          <button class="btn btn-primary mt-4" type="submit">Filtriraj</button>
+          <input type="date" value="<?php echo date('Y-m-d'); ?>" min="2023-01-01" max="<?php echo date('Y-m-d'); ?>" id="datum" name="datum" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button class="btn btn-primary mt-4" type="submit">Filtriraj</button>
+          </div>
         </form>
 
-        <h4 class="mt-5">Tecaj eura na dan <?php datum(); ?> je:</h4>
+        <h4 class="mt-5">Tecaj eura na dan
+          <?php datum(); ?> je:
+        </h4>
         <table class="table table-light table-striped mt-4">
           <thead>
             <tr>
@@ -71,8 +68,12 @@
           </thead>
           <tbody>
             <?php
-            $datum = $_POST['datum'];
-            tablica($datum);
+            if (isset($_POST['datum'])) {
+              $datum = $_POST['datum'];
+              tablica($datum);
+            } else {
+              tablica(date('Y-m-d'));
+            }
             ?>
         </table>
     </section>
@@ -121,12 +122,18 @@ function tablica($datum)
   endforeach;
 }
 
-function datum(){
-  $datum = $_POST['datum'];
-  if($datum == null){
+function datum()
+{
+  if (isset($_POST['datum'])) {
+    $datum = $_POST['datum'];
+    if ($datum == null) {
+      $datum = date('d-m-Y');
+      echo $datum;
+    } else {
+      echo $datum;
+    }
+  } else {
     $datum = date('d-m-Y');
-    echo $datum;
-  }else{
     echo $datum;
   }
 }

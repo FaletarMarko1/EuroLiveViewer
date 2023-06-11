@@ -4,7 +4,7 @@ $fajl = file_get_contents($url);
 $xml = simplexml_load_file($url) or die("feed not loading");
 $pare = $xml->item[0]->drzava;
 echo $pare;
-?>
+
 
 
 function pretvori()
@@ -30,3 +30,7 @@ function pretvori()
     echo "Odaberite valutu i unesite iznos";
   }
 }
+
+
+
+?>
