@@ -90,17 +90,17 @@
       <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
           <li class="page-item">
-            <a class="page-link" href="#" aria-label="Previous">
+            <a class="page-link" href="#a" aria-label="Previous">
               <span aria-hidden="true">&laquo;</span>
             </a>
           </li>
           <li class="page-item"><a class="page-link bg-primary text-light" href="#">1</a></li>
-          <li class="page-item"><a class="page-link" href="#" data-bs-toggle="popover" data-bs-trigger="focus"
+          <li class="page-item"><a class="page-link" href="#a" data-bs-toggle="popover" data-bs-trigger="focus"
               data-bs-content="Stranica ne postoji!">2</a></li>
-          <li class="page-item"><a class="page-link" href="#" data-bs-toggle="popover" data-bs-trigger="focus"
+          <li class="page-item"><a class="page-link" href="#a" data-bs-toggle="popover" data-bs-trigger="focus"
               data-bs-content="Stranica ne postoji!">3</a></li>
           <li class="page-item">
-            <a class="page-link" href="#" aria-label="Next" data-bs-toggle="popover" data-bs-trigger="focus"
+            <a class="page-link" href="#a" aria-label="Next" data-bs-toggle="popover" data-bs-trigger="focus"
               data-bs-content="Ne postoji sljedeća stranica!">
               <span aria-hidden="true">&raquo;</span>
             </a>
