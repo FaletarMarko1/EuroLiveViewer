@@ -57,7 +57,7 @@
         <h4 class="mt-5">Tečaj eura na dan
           <?php datum(); ?> je:
         </h4>
-        <table class="table table-light table-striped mt-4">
+        <table class="table table-light table-striped table-hover  mt-4">
           <thead>
             <tr>
               <th scope="col">Valuta</th>
@@ -81,7 +81,7 @@
         <nav aria-label="Page navigation example">
           <ul class="pagination justify-content-center">
             <li class="page-item">
-              <a class="page-link" href="#" aria-label="Previous" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-content="Ne postoji prethodna stranica!">
+              <a class="page-link" href="#" aria-label="Previous">
                 <span aria-hidden="true">&laquo;</span>
               </a>
             </li>

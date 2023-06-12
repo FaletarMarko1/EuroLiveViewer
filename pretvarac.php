@@ -52,7 +52,7 @@
           <span class="input-group-text px-5">&nbsp;&nbsp;&nbsp;€
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EUR&nbsp;&nbsp;&nbsp;&nbsp;</span>
           <input style="font-size:30px ; height: 70px; text-align:center;" id="novac" name="novac" type="number"
-            step="any" class="form-control">
+            step="any" placeholder="Unesite iznos" class="form-control">
         </div>
         <div>
           <img class="exchange" src="slike/exchange.png" alt="exchange image"><br>
@@ -101,7 +101,7 @@
             
               echo number_format($cijenaEur, 2) . " " . $valuta;
             } else {
-              echo "Odaberite valutu i unesite iznos";
+              echo "Odaberite valutu";
             }
 
 
