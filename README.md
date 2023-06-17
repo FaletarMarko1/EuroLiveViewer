@@ -1,4 +1,4 @@
-# Xml_projekt
+# EuroLiveViewer
 
 ## Projekt iz kolegija XML programiranje.
 
