@@ -20,6 +20,7 @@ EuroLiveViewer is a web app that lets you check the exchange rate of euro since 
 `$xml = simplexml_load_file($url) or die("Ne postoje podaci za taj datum");
 `
 <br>
+
 2. Displaying data to user:<br>
 `foreach ($xml->item as $item):
     echo '<tr>';
