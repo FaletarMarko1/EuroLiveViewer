@@ -16,7 +16,7 @@ EuroLiveViewer is a web app that lets you check the exchange rate of euro since 
 
 1. Collecting data:<br>
 ` $url = "https://api.hnb.hr/tecajn-eur/v3?format=xml&datum-primjene=" . $datum;
-`
+`<br>
 `$xml = simplexml_load_file($url) or die("Ne postoje podaci za taj datum");
 `
 2. Displaying data to user:<br>
