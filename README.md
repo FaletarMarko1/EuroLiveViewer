@@ -1,7 +1,5 @@
 # EuroLiveViewer
 
-
-Moguce je odabrati i pogledati tecaj za svaki dan od kada je eur uveden u Hrvatskoj. Takodjer je moguce pretvoriti EUR u bilo koju drugu valutu koja je ponudjena.
 EuroLiveViewer is a web app that lets you check the exchange rate of euro since the day it was introduced in Croatia.
 <p>
  You can also convert euro to any other presented currency.
